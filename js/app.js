@@ -7,6 +7,17 @@ class Despesa {
         this.descricao = descricao;
         this.valor = valor;
     }
+
+    validarDados() {
+        for (let i in this) {
+            if (this[i] == undefined || this[i] == '' || this[i] == null) {
+
+                return false;
+            }
+        }
+
+        return true;
+    }
 }
 
 class Bd {
@@ -33,6 +44,8 @@ class Bd {
 
 let bd = new Bd()
 
+let modal = new bootstrap.Modal(document.getElementById("modalRegistra"));
+
 function cadastrarDespesa() {
     let ano = document.getElementById('ano');
     let mes = document.getElementById('mes');
@@ -43,5 +56,24 @@ function cadastrarDespesa() {
 
     let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
 
-    bd.gravar(despesa);
+    if (despesa.validarDados()) {
+        // bd.gravar(despesa);
+        document.getElementById("modal_titulo_div").className = "modal-header text-success";
+        document.getElementById("modal_titulo").innerHTML = "Sucesso na gravação dos dados";
+        document.getElementById("modal_conteudo").innerHTML = "Despesa cadastrada com sucesso.";
+        document.getElementById("modal_btn").className = "btn btn-success";
+        document.getElementById("modal_btn").innerHTML = "Voltar";
+
+        modal.show();
+
+    } else {
+        document.getElementById("modal_titulo_div").className = "modal-header text-danger";
+        document.getElementById("modal_titulo").innerHTML = "Erro na gravação dos dados"
+        document.getElementById("modal_conteudo").innerHTML = "Existem campos que não foram preenchidos.";
+        document.getElementById("modal_btn").className = "btn btn-danger";
+        document.getElementById("modal_btn").innerHTML = "Voltar e corrigir";
+
+        modal.show();
+    }
+
 }
