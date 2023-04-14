@@ -28,6 +28,15 @@ class Bd {
         if (id === null) {
             localStorage.setItem('id', 0);
         }
+
+        // objeto literal, convertendo o tipo pela devida descrição
+        this.despesaTipos = {
+            "1": "Alimentação",
+            "2": "Educação",
+            "3": "Lazer",
+            "4": "Saúde",
+            "5": "Transporte"
+        }
     }
 
     getProximoId() {
@@ -82,15 +91,22 @@ function cadastrarDespesa() {
     let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
 
     if (despesa.validarDados()) {
-        bd.gravar(despesa);
+        // bd.gravar(despesa);
         document.getElementById("modal_titulo_div").className = "modal-header text-success";
         document.getElementById("modal_titulo").innerHTML = "Sucesso na gravação dos dados";
         document.getElementById("modal_conteudo").innerHTML = "Despesa cadastrada com sucesso.";
         document.getElementById("modal_btn").className = "btn btn-success";
         document.getElementById("modal_btn").innerHTML = "Voltar";
 
-        // Chama o modal de sucesso nos dados salvos
+        // variável para recuperar o id do formulário
+        let formulario = document.querySelector("#form");
+
+        // chama o modal de sucesso nos dados salvos
         modal.show();
+
+        // apaga os campos do formulário após salvar
+        formulario.reset();
+
 
     } else {
         document.getElementById("modal_titulo_div").className = "modal-header text-danger";
@@ -113,5 +129,20 @@ function carregaListaDespesas() {
     // recebe o array criado no método recuperarTodosRegistros
     despesas = bd.recuperarTodosRegistros();
 
-    console.log(despesas);
+    // seleciona o elemento tbody da página index.html
+    let listaDespesas = document.getElementById("listaDespesas");
+
+    // percorrendo o array despesas com uma função de callback através de um parâmetro.
+    // listando cada despesa de forma dinâmica
+    despesas.forEach(function (d) {
+
+        // criando a linha da tabela (tr)
+        let linha = listaDespesas.insertRow();
+
+        // criando as colunas da tabela (td)
+        linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`;
+        linha.insertCell(1).innerHTML = bd.despesaTipos[d.tipo];
+        linha.insertCell(2).innerHTML = d.descricao;
+        linha.insertCell(3).innerHTML = d.valor;
+    })
 }
