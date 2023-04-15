@@ -74,6 +74,10 @@ class Bd {
 
         return despesas;
     }
+
+    pesquisar(despesa) {
+        console.log(despesa);
+    }
 }
 
 let bd = new Bd()
@@ -145,4 +149,18 @@ function carregaListaDespesas() {
         linha.insertCell(2).innerHTML = d.descricao;
         linha.insertCell(3).innerHTML = d.valor;
     })
+}
+
+function pesquisarDespesa() {
+    let ano = document.getElementById('ano');
+    let mes = document.getElementById('mes');
+    let dia = document.getElementById('dia');
+    let tipo = document.getElementById('tipo');
+    let descricao = document.getElementById('descricao');
+    let valor = document.getElementById('valor');
+
+    let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
+
+    bd.pesquisar(despesa);
+
 }
