@@ -76,7 +76,15 @@ class Bd {
     }
 
     pesquisar(despesa) {
+
+        let despesasFiltradas = Array();
+
+        despesasFiltradas = this.recuperarTodosRegistros();
+
+        console.log(despesasFiltradas);
         console.log(despesa);
+
+        console.log(despesasFiltradas.filter(d => d.ano == despesa.ano));
     }
 }
 
@@ -95,7 +103,7 @@ function cadastrarDespesa() {
     let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
 
     if (despesa.validarDados()) {
-        // bd.gravar(despesa);
+        bd.gravar(despesa);
         document.getElementById("modal_titulo_div").className = "modal-header text-success";
         document.getElementById("modal_titulo").innerHTML = "Sucesso na gravação dos dados";
         document.getElementById("modal_conteudo").innerHTML = "Despesa cadastrada com sucesso.";
