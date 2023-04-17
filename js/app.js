@@ -81,10 +81,42 @@ class Bd {
 
         despesasFiltradas = this.recuperarTodosRegistros();
 
-        console.log(despesasFiltradas);
         console.log(despesa);
+        console.log(despesasFiltradas);
 
-        console.log(despesasFiltradas.filter(d => d.ano == despesa.ano));
+        // aplicando filtro de ano
+        if (despesa.ano != "") {
+            console.log("Filtro ano");
+            despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano);
+        }
+
+        // aplicando filtro de mês
+        if (despesa.mes != "") {
+            console.log("Filtro mês");
+            despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes);
+        }
+
+        // aplicando filtro de dia
+        if (despesa.dia != "") {
+            despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia);
+        }
+
+        // aplicando filtro de tipo
+        if (despesa.tipo != "") {
+            despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo);
+        }
+
+        // aplicando filtro de descrição
+        if (despesa.descricao != "") {
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao);
+        }
+
+        // aplicando filtro de valor
+        if (despesa.valor != "") {
+            despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor);
+        }
+
+        console.log(despesasFiltradas);
     }
 }
 
