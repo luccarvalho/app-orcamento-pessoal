@@ -123,11 +123,32 @@ class Bd {
     }
 
     remover(id) {
-        localStorage.removeItem(id);
+        document.getElementById("modal_titulo_div").className = "modal-header text-danger";
+        document.getElementById("modal_titulo").innerHTML = "Você está prestes a excluir uma despesa!";
+        document.getElementById("modal_conteudo").innerHTML = "Se tem certeza, clique em Excluir";
+        document.getElementById("modal_btn").className = "btn btn-primary";
+
+
+        let btnExcluir = document.getElementById("modal_btn1");
+        btnExcluir.className = "btn btn-danger";
+        btnExcluir.innerHTML = "Excluir"
+
+        btnExcluir.onclick = function () {
+            localStorage.removeItem(id);
+            btnExcluir.setAttribute("data-bs-dismiss", "modal");
+            pesquisarDespesa();
+        }
+
+        document.getElementById("modal_btn").innerHTML = "Cancelar";
+        $("#modalDeleta").modal({ show: true });
+        pesquisarDespesa();
+
     }
 }
 
-let bd = new Bd()
+// let modalDeletar = new bootstrap.Modal(document.getElementById("modalDeleta"));
+
+let bd = new Bd();
 
 let modal = new bootstrap.Modal(document.getElementById("modalRegistra"));
 
@@ -205,8 +226,6 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
 
         btn.onclick = function () {
             bd.remover(this.id);
-
-            window.location.reload();
         }
 
         console.log(d);
