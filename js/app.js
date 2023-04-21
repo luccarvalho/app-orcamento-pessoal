@@ -84,18 +84,13 @@ class Bd {
 
         despesasFiltradas = this.recuperarTodosRegistros();
 
-        console.log(despesa);
-        console.log(despesasFiltradas);
-
         // aplicando filtro de ano
         if (despesa.ano != "") {
-            console.log("Filtro ano");
             despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano);
         }
 
         // aplicando filtro de mês
         if (despesa.mes != "") {
-            console.log("Filtro mês");
             despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes);
         }
 
@@ -140,17 +135,15 @@ class Bd {
         }
 
         document.getElementById("modal_btn").innerHTML = "Cancelar";
-        $("#modalDeleta").modal({ show: true });
+        modal.show();
         pesquisarDespesa();
 
     }
 }
 
-// let modalDeletar = new bootstrap.Modal(document.getElementById("modalDeleta"));
-
 let bd = new Bd();
 
-let modal = new bootstrap.Modal(document.getElementById("modalRegistra"));
+let modal = new bootstrap.Modal("#modalInfo");
 
 function cadastrarDespesa() {
     let ano = document.getElementById('ano');
@@ -227,8 +220,6 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
         btn.onclick = function () {
             bd.remover(this.id);
         }
-
-        console.log(d);
     })
 }
 
