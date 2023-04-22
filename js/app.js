@@ -1,3 +1,9 @@
+// máscara jQuery para o campo valor
+$('#valor').mask("#.##0,00", { reverse: true });
+
+// máscara jQuery para o campo dia
+$('#dia').mask("00", { reverse: true });
+
 class Despesa {
     constructor(ano, mes, dia, tipo, descricao, valor) {
         this.ano = ano;

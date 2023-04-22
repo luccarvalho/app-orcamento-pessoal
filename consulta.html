@@ -23,6 +23,10 @@
       defer
       src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"
     ></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- jQuery Mask Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
     <!-- Script JS -->
     <script src="js/app.js" defer></script>
   </head>
@@ -73,14 +77,14 @@
 
       <div class="row mb-2">
         <div class="col-md-2 mb-2">
-          <select class="form-control" id="ano">
+          <select class="form-select" id="ano">
             <option value="">Ano</option>
             <option value="2023">2023</option>
           </select>
         </div>
 
         <div class="col-md-2 mb-2">
-          <select class="form-control" id="mes">
+          <select class="form-select" id="mes">
             <option value="">Mês</option>
             <option value="1">Janeiro</option>
             <option value="2">Fevereiro</option>
@@ -98,11 +102,19 @@
         </div>
 
         <div class="col-md-2 mb-2">
-          <input type="text" class="form-control" placeholder="Dia" id="dia" />
+          <input
+            type="number"
+            min="1"
+            max="31"
+            step="1"
+            class="form-control"
+            placeholder="Dia"
+            id="dia"
+          />
         </div>
 
         <div class="col-md-6">
-          <select class="form-control" id="tipo">
+          <select class="form-select" id="tipo">
             <option value="">Tipo</option>
             <option value="1">Alimentação</option>
             <option value="2">Educação</option>
@@ -127,7 +139,7 @@
           <input
             type="text"
             class="form-control"
-            placeholder="Valor"
+            placeholder="Valor R$0,00"
             id="valor"
           />
         </div>
