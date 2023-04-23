@@ -14,7 +14,7 @@ Depois de clicar no botão para salvar a despesa, a mesma fica armazenada no Loc
 
 É possível salvar quantas despesas forem necessárias.
 
-Se o usuário tente salvar uma despesa sem inserir todas as informções, uma notificação (modal) de erro é apresentada, caso contrário, um modal com a informação de despesa salva com sucesso é apresentada.
+Se o usuário tentar salvar uma despesa sem inserir todas as informções, uma notificação (modal) de erro é apresentada, caso contrário, um modal com a informação de despesa salva com sucesso é apresentada.
 
 Ao acessar a página de consulta de despesas, uma lista com todas as despesas cadastradas já estará disponível na tela, mas também será possível aplicar filtros para consultar uma despesa específica, além do botão de excluir despesa.
 
