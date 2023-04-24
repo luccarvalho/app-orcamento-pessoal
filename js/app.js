@@ -41,7 +41,8 @@ class Bd {
             "2": "Educação",
             "3": "Lazer",
             "4": "Saúde",
-            "5": "Transporte"
+            "5": "Transporte",
+            "6": "Outro"
         }
     }
 
@@ -93,34 +94,41 @@ class Bd {
         // aplicando filtro de ano
         if (despesa.ano != "") {
             despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano);
+            document.getElementById("listaDespesas").className = "table-success";
         }
 
         // aplicando filtro de mês
         if (despesa.mes != "") {
             despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes);
+            document.getElementById("listaDespesas").className = "table-success";
         }
 
         // aplicando filtro de dia
         if (despesa.dia != "") {
             despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia);
+            document.getElementById("listaDespesas").className = "table-success";
         }
 
         // aplicando filtro de tipo
         if (despesa.tipo != "") {
             despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo);
+            document.getElementById("listaDespesas").className = "table-success";
         }
 
         // aplicando filtro de descrição
         if (despesa.descricao != "") {
             despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao);
+            document.getElementById("listaDespesas").className = "table-success";
         }
 
         // aplicando filtro de valor
         if (despesa.valor != "") {
             despesasFiltradas = despesasFiltradas.filter(d => d.valor == despesa.valor);
+            document.getElementById("listaDespesas").className = "table-success";
         }
 
         return despesasFiltradas;
+
     }
 
     remover(id) {
@@ -199,7 +207,7 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
         despesas = bd.recuperarTodosRegistros();
     }
 
-    // seleciona o elemento tbody da página index.html
+    // seleciona o elemento tbody da página consulta.html
     let listaDespesas = document.getElementById("listaDespesas");
     listaDespesas.innerHTML = "";
 
