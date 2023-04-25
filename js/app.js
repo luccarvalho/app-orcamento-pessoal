@@ -145,7 +145,8 @@ class Bd {
         btnExcluir.onclick = function () {
             localStorage.removeItem(id);
             btnExcluir.setAttribute("data-bs-dismiss", "modal");
-            pesquisarDespesa();
+            // pesquisarDespesa();
+            window.location.reload();
         }
 
         document.getElementById("modal_btn").innerHTML = "Cancelar";
@@ -211,6 +212,8 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
     let listaDespesas = document.getElementById("listaDespesas");
     listaDespesas.innerHTML = "";
 
+    let valorTotal = 0;
+
     // percorrendo o array despesas com uma função de callback através de um parâmetro.
     // listando cada despesa de forma dinâmica
     despesas.forEach(function (d) {
@@ -223,6 +226,9 @@ function carregaListaDespesas(despesas = Array(), filtro = false) {
         linha.insertCell(1).innerHTML = bd.despesaTipos[d.tipo];
         linha.insertCell(2).innerHTML = d.descricao;
         linha.insertCell(3).innerHTML = d.valor;
+
+        valorTotal += parseFloat(d.valor.replace(",", "."));
+        document.getElementById("valorTotal").innerHTML = valorTotal.toFixed(2);
 
         // criando o botão que deleta cada despesa
         let btn = document.createElement("button");
