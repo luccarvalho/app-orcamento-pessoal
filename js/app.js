@@ -14,6 +14,7 @@ class Despesa {
         this.valor = valor;
     }
 
+    // percorrendo os elementos dentro do atributo despesa
     validarDados() {
         for (let i in this) {
             if (this[i] == undefined || this[i] == '' || this[i] == null) {
@@ -28,6 +29,7 @@ class Despesa {
 
 class Bd {
 
+    // construindo o primeiro ID em LocalStorage
     constructor() {
         let id = localStorage.getItem('id');
 
@@ -46,14 +48,16 @@ class Bd {
         }
     }
 
+    // criando uma função para verificar a existência de um ID no LocalStorage
     getProximoId() {
         let proximoId = localStorage.getItem('id');
         return parseInt(proximoId) + 1;
     }
 
+    // gravando as despesas em LocalStorage
     gravar(d) {
         let novoId = this.getProximoId();
-        localStorage.setItem(novoId, JSON.stringify(d));
+        localStorage.setItem(novoId, JSON.stringify(d)); // convertendo um objeto literal em uma notação JSON
         localStorage.setItem('id', novoId);
     }
 
@@ -170,6 +174,7 @@ function cadastrarDespesa() {
 
     let despesa = new Despesa(ano.value, mes.value, dia.value, tipo.value, descricao.value, valor.value);
 
+    // validando dados antes de gravar em LocalStorage
     if (despesa.validarDados()) {
         bd.gravar(despesa);
         document.getElementById("modal_titulo_div").className = "modal-header text-success";
