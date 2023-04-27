@@ -20,17 +20,43 @@ body {
   color: #6373ff;
 }
 
-#form-container form {
-  padding-bottom: 100px;
+.btn.btn-primary {
+  width: 100%;
 }
 
 .row.align-items-center {
   align-content: center;
   height: 100%;
-  padding: 50px 0;
+}
+
+.col-md-4.order-md-1 {
+  padding-top: 40px;
 }
 
 #link-container {
   text-align: center;
   padding-top: 50px;
+}
+
+/* responsividade telas maiores */
+@media (min-width: 768px) {
+  #form-container form {
+    padding-bottom: 100px;
+  }
+
+  .row.align-items-center {
+    padding: 50px 0;
+  }
+
+  .btn.btn-primary {
+    width: auto;
+  }
+
+  .col-md-4.order-md-1 {
+    padding-top: 0;
+  }
+
+  #descricao {
+    margin-bottom: 10px;
+  }
 }
