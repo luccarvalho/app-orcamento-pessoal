@@ -18,8 +18,6 @@ Se o usuário tentar salvar uma despesa sem inserir todas as informções, uma n
 
 Ao acessar a página de consulta de despesas, uma lista com todas as despesas cadastradas já estará disponível na tela, mas também será possível aplicar filtros para consultar uma despesa específica, além do botão de excluir despesa.
 
-Projeto responsivo para mobile.
-
 ## :heavy_check_mark: Técnologias utilizadas:
 
 - `HTML`
