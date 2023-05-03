@@ -17,7 +17,7 @@ body {
 
 #logo {
   width: 50px;
-  margin-right: 15px;
+  margin: 0 15px;
 }
 
 /* navbar */
@@ -58,7 +58,7 @@ body {
   height: 100%;
 }
 
-.col-md-4.order-md-1 {
+#img-form {
   padding-top: 40px;
 }
 
@@ -67,6 +67,7 @@ body {
   padding-top: 50px;
 }
 
+/* footer */
 footer {
   padding-top: 30px;
   text-align: center;
@@ -91,7 +92,7 @@ footer a {
     width: auto;
   }
 
-  .col-md-4.order-md-1 {
+  #img-form {
     padding-top: 0;
   }
 
