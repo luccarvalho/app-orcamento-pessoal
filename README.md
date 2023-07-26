@@ -1,10 +1,12 @@
-# app-orçamento-pessoal
+<h1 align="center">App-orçamento-pessoal</h1>
 
-## :dart: Objetivo do projeto:
+<div align="center">
+  <img width="600" src="src/assets/orcamento-pessoal_to_readme.gif" alt="Gif de apresentação do projeto">
+</div>
 
-Criar uma página/app para o cadastro de despesas pessoais, utilizando o LocalStorage para persistir os dados no próprio navegador.
+## Descrição e objetivo do projeto
 
-## :receipt: Descrição do projeto:
+O objetivo foi criar uma aplicação para o cadastro de despesas pessoais, utilizando JavaScript e o LocalStorage para persistir os dados no próprio navegador.
 
 O projeto envolve uma página para o registro das despesas e outra página para consultar as despesas cadastradas.
 
@@ -18,9 +20,13 @@ Se o usuário tentar salvar uma despesa sem inserir todas as informações, uma 
 
 Ao acessar a página de consulta de despesas, uma lista com todas as despesas cadastradas já estará disponível na tela, mas também será possível aplicar filtros para consultar uma despesa específica, além do botão de excluir despesa.
 
-## :heavy_check_mark: Técnologias utilizadas:
+## :heavy_check_mark: Tecnologias utilizadas
 
 - `HTML`
 - `CSS`
 - `Bootstrap`
 - `JavaScript`
+
+## :link: Acesso ao projeto
+
+Você pode acessar o deploy do projeto na Vercel clicando [aqui](https://app-orcamento-pessoal-two.vercel.app/).
